@@ -377,7 +377,11 @@
 
 #if (defined(mips) || defined(__mips__) || defined(MIPS) || defined(_MIPS_))
 #define WTF_CPU_MIPS 1
+#if defined(__GLIBC__)
 #include <sgidefs.h>
+#else
+#include <asm/sgidefs.h>
+#endif
 #if defined(__MIPSEB__)
 #define WTF_CPU_BIG_ENDIAN 1
 #endif
